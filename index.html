@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parliament Seat Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="settings-panel">
+        <h2 class="parliament-title">SORDLAND PARLIAMENT CREATOR</h2>
+
+        <div class="form-group">
+            <label for="parliamentTitle">Parliament Title</label>
+            <input type="text" id="parliamentTitle" value="THE GRAND NATIONAL ASSEMBLY">
+        </div>
+        <form id="addPartyForm">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="partyName">Party Name</label>
+                    <input type="text" id="partyName" required>
+                </div>
+                <div class="form-group">
+                    <label>Party Color</label>
+
+                    <div class="color-palette" id="colorPalette"></div>
+
+                    <div class="custom-color">
+                        <span>Custom:</span>
+                        <input type="color" id="partyColor" value="#667eea">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- NEW -->
+            <div class="form-group">
+                <label>Select Party Logo (Optional)</label>
+                <div class="logo-picker" id="logoPicker"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="partySeats">Number of Seats</label>
+                <input type="number" id="partySeats" min="1" required>
+                <div class="seats-remaining" id="seatsRemaining"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Party</button>
+        </form>
+    </div>
+
+    <div class="parliament-display">
+        <div class="parliament-title" id="displayTitle">THE GRAND NATIONAL ASSEMBLY</div>
+
+        <div class="parliament-canvas-wrapper">
+            <canvas id="parliamentCanvas" width="600" height="400"></canvas>
+        </div>
+
+        <div id="partiesDisplay">
+            <div class="empty-state">No parties added yet</div>
+        </div>
+
+        <div class="save-button-wrapper">
+            <button id="saveBtn" class="btn btn-primary">Save as PNG</button>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
