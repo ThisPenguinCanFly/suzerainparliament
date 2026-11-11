@@ -1,38 +1,68 @@
+
+/* =========================================================
+   1. SORDISH DESIGN SYSTEM
+========================================================= */
+
 :root {
-  /* Sordish colors (purple/amber) */
-  --sordish-primary: #4f2845;
-  --sordish-primary-dark: #3b284f;
-  --sordish-accent: #f9af3d;
+    /* Sordish colors */
+    --sordish-primary: #4f2845;
+    --sordish-primary-dark: #3b284f;
+    --sordish-accent: #f9af3d;
 
-  /* Common colors */
-  --background: #150d10;
-  --background2: #140D14;
-  --text-primary: #ecdcab;
-  --text-gray-dark: #3a3a3a;
-  --text-gray: #B0B0B0;
-  --white: #ffffff;
+    /* Backgrounds */
+    --background: #150d10;
+    --background2: #1c1219;
+    --ui-black: #141014;
+    --ui-black-hover: #211820;
 
-  --ui-black: #141414;
-  --ui-black-hover: #1e1e1e;
+    /* Text */
+    --text-primary: #b0b0b0;
+    --text-title: #ecdcab;
+    --text-gray: #b0b0b0;
+    --text-gray-dark: #3a3038;
+    --white: #ffffff;
 
-  --body-font-color: #2c3e50;
+    /* Status colors */
+    --danger: #d94a4a;
+    --success: #4b9b75;
+
+    /* Shared styling */
+    --border-color: var(--text-gray-dark);
+    --border-radius: 5px;
+    --transition: 0.2s ease;
+
+    /* Fonts */
+    --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+    --font-classical: 'OldStandardTT', serif;
 }
 
-@font-face{
-  font-family: 'Oswald';
-  src: url('./fonts/Oswald-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+
+/* =========================================================
+   2. FONTS
+========================================================= */
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('./fonts/Oswald-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
-@font-face{
-  font-family: 'OldStandardTT';
-  src: url('./fonts/OldStandardTT-Regular.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+@font-face {
+    font-family: 'OldStandardTT';
+    src: url('./fonts/OldStandardTT-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
+
+
+/* =========================================================
+   3. GLOBAL RESET & BODY
+========================================================= */
 
 * {
     margin: 0;
@@ -41,29 +71,22 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-ui);
     background: var(--ui-black);
+    color: var(--text-gray);
     min-height: 100vh;
     padding: 40px 20px;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-img{
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-}
+img,
+svg {
+     width: 85%;
+    height: 85%;
 
-svg{
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
 }
 
 .container {
@@ -71,18 +94,76 @@ svg{
     width: 100%;
 }
 
-.settings-panel {
+
+/* =========================================================
+   4. PANELS
+========================================================= */
+
+.settings-panel,
+.parliament-display {
     background: var(--ui-black);
+    border: 1px solid var(--border-color);
     padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid var(--text-gray-dark);
 }
+
+.settings-panel {
+    margin-bottom: 30px;
+}
+
+.parliament-display {
+    padding: 40px;
+}
+
+
+/* =========================================================
+   5. HEADINGS & TYPOGRAPHY
+========================================================= */
 
 .settings-panel h2 {
     color: var(--text-primary);
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-size: 20px;
     font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.parliament-title {
+    font-family: var(--font-classical);
+    font-size: 28px;
+    text-align: center;
+    color: var(--text-title);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    color: var(--sordish-accent);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.total-seats-display {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   6. FORMS & INPUTS
+========================================================= */
+
+span {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--font-classical);
+    font-size: 16px;
+    color: var(--text-gray);
 }
 
 .form-group {
@@ -92,25 +173,41 @@ svg{
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: 500;
+    font-family: var(--font-classical);
+    font-size: 16px;
+    font-weight: bold;
     color: var(--text-gray);
 }
 
-.form-group input {
+.form-group input,
+.advanced-setting input {
     width: 100%;
     padding: 10px 14px;
-    border: 1px solid var(--text-gray-dark);
-    border-radius: 6px;
+
+    background: var(--background);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    font-family: var(--font-ui);
     font-size: 14px;
-    background: var(--ui-black);
-    color: var(--text-gray);
-    transition: border-color 0.2s;
+
+    transition: border-color var(--transition),
+                background var(--transition);
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.advanced-setting input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--sordish-accent);
+    background: var(--background2);
+}
+
+.form-group input::placeholder,
+.advanced-setting input::placeholder {
+    color: var(--text-gray);
+    opacity: 0.6;
 }
 
 .form-group input[type="color"] {
@@ -126,142 +223,6 @@ svg{
 
 .form-row .form-group {
     flex: 1;
-}
-
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-primary {
-    background: var(--ui-black);
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary)
-}
-
-.btn-primary:hover {
-    background: var(--ui-black-hover);
-}
-
-.btn-danger {
-    background: transparent;
-    color: #ff4444;
-    padding: 4px 8px;
-    font-size: 12px;
-    border: 1px solid #ff4444;
-}
-
-.btn-danger:hover {
-    background: #ff4444;
-    color: white;
-}
-
-
-.parliament-display {
-    background: var(--ui-black);
-    
-    padding: 40px;
-    border: 1px solid var(--text-gray);
-}
-
-.parliament-title {
-    font-family: 'OldStandardTT', serif;
-    font-size: 28px;
-    text-align: center;
-    color: var(--text-primary);
-    margin-bottom: 40px;
-    text-transform: uppercase;
-}
-
-.parliament-canvas-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--text-gray);
-    margin-bottom: 30px;
-}
-
-#parliamentCanvas {
-    max-width: 100%;
-}
-
-.total-seats-display {
-    font-family: 'Oswald';
-    font-size: 36px;
-    font-weight: 300;
-    color: var(--text-primary);
-    margin-top: 20px;
-    letter-spacing: 2px;
-}
-
-.parties-section {
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-size: 18px;
-    color: #d4af37;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-.party-list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--text-gray-dark);
-}
-
-.party-list-item:last-child {
-    border-bottom: none;
-}
-
-.party-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.party-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    display: grid;
-    place-items: center; /* centers both directions */
-}
-
-.party-name-display {
-    font-size: 20px;
-    font-family: 'OldStandardTT';
-    color: var(--text-gray);
-    font-weight: 400;
-}
-
-.party-seats-display {
-    font-size: 20px;
-    font-family: 'OldStandardTT';
-    color: var(--text-gray);
-    font-weight: 300;
-}
-
-.save-button-wrapper {
-    text-align: center;
-}
-
-.empty-state {
-    text-align: center;
-    color: var(--text-gray);
-    font-size: 14px;
-    padding: 20px;
 }
 
 .total-seats-input {
@@ -283,58 +244,125 @@ svg{
 }
 
 .seats-remaining.error {
-    color: #ff4444;
+    color: var(--danger);
 }
 
-.logo-picker {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
 
-.logo-option {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--text-gray-dark);
-    border: 2px solid transparent;
+/* =========================================================
+   7. BUTTONS
+========================================================= */
+
+.btn {
+    padding: 10px 20px;
+
+    background: var(--ui-black);
+    color: var(--text-primary);
+
+    border: 1px solid var(--sordish-primary);
+    border-radius: var(--border-radius);
+
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+
     cursor: pointer;
+    transition: background var(--transition),
+                border-color var(--transition),
+                color var(--transition);
+}
+
+.btn:hover {
+    background: var(--sordish-primary-dark);
+    border-color: var(--sordish-accent);
+}
+
+.btn:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--sordish-accent);
+    outline-offset: 3px;
+}
+
+.btn-primary {
+    background: var(--sordish-primary);
+    color: var(--text-title);
+    border: 1px solid var(--sordish-primary);
+}
+
+.btn-primary:hover {
+    background: var(--sordish-primary-dark);
+    border-color: var(--sordish-accent);
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    padding: 4px 8px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    border: 1px solid var(--danger);
+}
+
+.btn-danger:hover {
+    background: var(--danger);
+    color: var(--white);
+}
+
+
+/* =========================================================
+   8. PARLIAMENT CANVAS
+========================================================= */
+
+.parliament-canvas-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent; 
+
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
 }
 
-.logo-option img {
-    width: 70%;
-    height: 70%;
-    pointer-events: none;
-    user-select: none;        /* Prevent selection */
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none;     /* Old Edge */
+#parliamentCanvas {
+    max-width: 100%;
 }
 
-.logo-option.selected {
-    border-color: #d4af37;
+
+/* =========================================================
+   9. PARTY LIST
+========================================================= */
+
+.parties-section {
+    margin-bottom: 30px;
 }
 
 .party-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 7px 5px;
+    border-bottom: 1px solid var(--border-color);
+
     cursor: grab;
+    touch-action: none;
+    user-select: none;
+
+    transition: background var(--transition),
+                opacity var(--transition);
+
+    -webkit-tap-highlight-color: transparent;
 }
 
-.party-list-item.dragging {
-    opacity: 0.5;
+.party-list-item:last-child {
+    border-bottom: none;
 }
 
 .party-list-item:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.04);
 }
 
-.party-list-item {
-    touch-action: none;
-    cursor: grab;
-    user-select: none;
+.party-list-item:active {
+    cursor: grabbing;
 }
 
 .party-list-item.dragging {
@@ -343,8 +371,55 @@ svg{
 }
 
 .party-list-item.drop-target {
-    outline: 2px dashed #667eea;
+    outline: 2px dashed var(--sordish-accent);
+    outline-offset: -2px;
 }
+
+.party-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.party-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    display: grid;
+    place-items: center;
+}
+
+.party-name-display,
+.party-seats-display {
+    font-family: var(--font-classical);
+    font-size: 20px;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.party-bin {
+    margin-bottom: 16px;
+    padding: 10px;
+
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.party-bin h3 {
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    color: var(--text-gray);
+}
+
+
+/* =========================================================
+   10. COLOR PICKER
+========================================================= */
 
 .color-palette {
     display: grid;
@@ -356,49 +431,189 @@ svg{
 .color-swatch {
     width: 28px;
     height: 28px;
-    border-radius: 6px;
+    border-radius: var(--border-radius);
+
     cursor: pointer;
     border: 2px solid transparent;
+
+    transition: transform var(--transition),
+                border-color var(--transition);
+}
+
+.color-swatch:hover {
+    transform: scale(1.08);
 }
 
 .color-swatch.selected {
-    border-color: var(--white);
-    box-shadow: 0 0 0 2px #667eea;
+    border-color: var(--sordish-accent);
+    box-shadow: 0 0 0 2px var(--sordish-primary);
 }
 
 .custom-color {
-    color: var(--text-gray);
-    font-weight: bold;
-    border-radius: 6px;
     display: flex;
     align-items: center;
     gap: 8px;
+
+    color: var(--text-gray);
+    font-weight: bold;
     font-size: 0.9rem;
 }
 
 .custom-color input {
-    color: var(--text-primary);
-    border-radius: 6px;
     width: 36px;
     height: 28px;
     padding: 0;
-    border: none;
+
     background: none;
+    border: none;
+    border-radius: var(--border-radius);
+
+    cursor: pointer;
 }
 
-.party-bin {
-    margin-bottom: 16px;
-    padding: 8px;
-    border: 1px dashed var(--text-gray-dark);
-    border-radius: 6px;
+
+/* =========================================================
+   11. LOGO PICKER
+========================================================= */
+
+.logo-picker {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
 }
 
-.party-bin h3 {
-    margin: 0 0 8px 0;
-    font-size: 0.9rem;
+.logo-option {
+    width: 48px;
+    height: 48px;
+
+    background: var(--background2);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    transition: border-color var(--transition),
+                background var(--transition),
+                transform var(--transition);
+}
+
+.logo-option:hover {
+    background: var(--sordish-primary-dark);
+    transform: scale(1.05);
+}
+
+.logo-option.selected {
+    border-color: var(--sordish-accent);
+    box-shadow: 0 0 0 2px var(--sordish-primary);
+}
+
+.logo-option img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* =========================================================
+   12. SAVE BUTTON & EMPTY STATE
+========================================================= */
+
+.save-button-wrapper {
+    text-align: center;
+}
+
+.empty-state {
+    text-align: center;
     color: var(--text-gray);
+    font-size: 14px;
+    padding: 20px;
 }
 
+
+/* =========================================================
+   13. ADVANCED MODE
+========================================================= */
+
+.advanced-mode-container {
+    margin-top: 20px;
+}
+
+.advanced-mode-panel {
+    margin-top: 15px;
+    padding: 20px;
+
+    background: var(--background2);
+    border: 1px solid var(--sordish-primary);
+    border-radius: var(--border-radius);
+}
+
+.advanced-mode-panel h3 {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.advanced-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+.advanced-setting label {
+    color: var(--text-gray);
+    font-family: var(--font-classical);
+    font-size: 16px;
+}
+
+.advanced-setting small {
+    color: var(--text-gray);
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.advanced-mode-panel button {
+    margin: 5px 5px 0 0;
+}
+
+
+/* Custom SVG Upload */
+
+.custom-logo-upload {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.custom-logo-upload label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.custom-logo-upload small {
+    color: var(--text-gray);
+    font-size: 12px;
+}
+
+/* =========================================================
+   14. RESPONSIVE DESIGN
+========================================================= */
 
 @media (max-width: 768px) {
     body {
@@ -417,5 +632,30 @@ svg{
 
     .total-seats-display {
         font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .total-seats-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .logo-picker {
+        grid-template-columns: repeat(4, 48px);
+    }
+
+    .party-name-display,
+    .party-seats-display {
+        font-size: 17px;
+    }
+
+    .advanced-mode-panel {
+        padding: 15px;
     }
 }
